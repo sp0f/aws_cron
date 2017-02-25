@@ -16,4 +16,4 @@ Similar to regular cron but for EC2 instances.
     * if instance is in 'running' state -> stop, change type, start
 
 #### Why ?
-Because it's easier to let people tag their own instances than to give them permission and knowledge to run cli action by them self.
+Because it's easier to let people tag their own instances than to give them permission and knowledge to run cli action by themselves.
