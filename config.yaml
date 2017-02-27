@@ -1,0 +1,4 @@
+logging:
+  log_file_path: "./aws_cron.log"
+  log_level: 10
+  boto_log_level: 50
