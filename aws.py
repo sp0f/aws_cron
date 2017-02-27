@@ -45,6 +45,8 @@ def stop_instance(instance):
 
 def change_instance_type(instance,instance_type):
     """change instance type. If instance is in 'running' state shut it down first and start again after type change"""
+    #  TODO check instance type before changing
+
     logging.info("Changing instance %s type to %s", instance.id, instance_type)
     instance_state = instance.state['Name']
     if instance_state != "running" and instance_state != "stopped":
