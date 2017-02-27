@@ -15,5 +15,8 @@ Similar to regular cron but for EC2 instances.
     * if instance is in 'stopped' state -> change its type
     * if instance is in 'running' state -> stop, change type, start
 
+#### Logging
+Logging configuration in `config.yaml`
+
 #### Why ?
 Because it's easier to let people tag their own instances than to give them permission and knowledge to run cli action by themselves.
