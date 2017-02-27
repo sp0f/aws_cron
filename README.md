@@ -17,7 +17,7 @@ Because it's easier to let people tag their own instances than to give them perm
 * start : run instance
 * change_type _instance type_ :
     * if instance is in 'stopped' state -> change its type
-    * if instance is in 'running' state -> stop, change type, start
+    * if instance is in 'running' state -> **stop**, change type, start
 
 #### IAM permissions
 ```
