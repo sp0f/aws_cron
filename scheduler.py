@@ -69,19 +69,19 @@ def should_i_run_complex(schedule, start_time):
                   minutes, hour, day_of_month, month, day_of_week)
     logging.debug("should_i_run | START_TIME minutes: %s, hours: %s, day of month: %s, month: %s, day of week: %s",
                   start_time.tm_min, start_time.tm_hour, start_time.tm_mday, start_time.tm_mon, start_time.tm_wday)
-    if check_field(month, start_time.tm_mon) and month != "*":
+    if not check_field(month, start_time.tm_mon) and month != "*":
         # schedule is for different month
         return False
-    elif check_field(day_of_month, start_time.tm_mday) and day_of_month != "*":
+    elif not check_field(day_of_month, start_time.tm_mday) and day_of_month != "*":
         # different day of month
         return False
-    elif check_field(day_of_week, start_time.tm_wday) and day_of_week != "*":
+    elif not check_field(day_of_week, start_time.tm_wday) and day_of_week != "*":
         # different day of week
         return False
-    elif check_field(hour, start_time.tm_hour) and hour != "*":
+    elif not check_field(hour, start_time.tm_hour) and hour != "*":
         # different hour
         return False
-    elif check_field(minutes, start_time.tm_min) and minutes != "*":
+    elif not check_field(minutes, start_time.tm_min) and minutes != "*":
         # different minute
         return False
     else:
@@ -112,6 +112,13 @@ def simple_check(field_value, start_time):
 
 def range_check(field_value, start_time):
     start, end = field_value.split("-")
+
+    # check if start is < than end
+    if start > end:
+        tmp=start
+        start=end
+        end=tmp
+
     if int(start) <= start_time <= int(end):
         return True
     else:

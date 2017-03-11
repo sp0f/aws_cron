@@ -19,7 +19,7 @@ def main():
     for instance in instances:
         schedules, actions = decode_schedule_tags(instance)
         for item, schedule in schedules.items():
-           if should_i_run(schedule, start_time):
+           if should_i_run_complex(schedule, start_time):
                 run_action(actions[item], instance)
 
 
