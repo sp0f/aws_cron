@@ -1,7 +1,7 @@
 import boto3
 import logging
 
-ec2 = boto3.resource('ec2')
+ec2 = boto3.resource('ec2', region_name='eu-west-1')
 
 def decode_schedule_tags(instance):
     """
@@ -114,7 +114,7 @@ def range_check(field_value, start_time):
     start, end = field_value.split("-")
 
     # check if start is < than end
-    if start > end:
+    if int(start) > int(end):
         tmp=start
         start=end
         end=tmp
