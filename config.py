@@ -1,10 +1,10 @@
-from yaml import load
+from yaml import load, FullLoader
 
 
 def get_yaml_config(configFile="config.yaml"):
     with open(configFile,"r") as file:
         configDataRaw=file.read()
-    configDataYAML=load(configDataRaw)
+    configDataYAML=load(configDataRaw,Loader=FullLoader)
     return configDataYAML
 
 # configuration
