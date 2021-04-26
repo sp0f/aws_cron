@@ -9,6 +9,9 @@ def run_action(action,instance):
     elif action == "stop":
         logging.info("Running STOP action on instance %s", instance.id)
         result=stop_instance(instance)
+    elif action == "reboot":
+        logging.info("Running REBOOT action on instance %s", instance.id)
+        result=reboot_instance(instance)
     elif action[:11] == "change_type":
         logging.info("Running CHANGE_TYPE action on instance %s", instance.id)
         instance_type = action.split(" ")[1]

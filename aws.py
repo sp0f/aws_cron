@@ -43,6 +43,17 @@ def stop_instance(instance):
         # TODO: set waiter
         return result
 
+def reboot_instance(instance):
+    """reboot running instance"""
+    instance_state=instance.state['Name']
+    if instance_state != "running":
+        logging.critical("Instance %s in state %s - can't REBOOT", instance.id, instance_state)
+        return None
+    else:
+        result = instance.reboot()
+        # TODO: set waiter
+        return result
+
 def change_instance_type(instance,instance_type):
     """change instance type. If instance is in 'running' state shut it down first and start again after type change"""
     #  TODO check instance type before changing
